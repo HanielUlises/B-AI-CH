@@ -1,0 +1,227 @@
+body,
+h1,
+h2,
+p,
+form {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  height: 100%;
+}
+
+body {
+  background-image: url('fondo.png');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+body a {
+  text-decoration: none;
+}
+
+.headerbach {
+  display: flex;
+  background-color: #1D1D1D;
+  width: 100%;
+  height: 110px;
+  border-bottom-left-radius: 80px;
+  border-bottom-right-radius: 80px;
+  margin-bottom: 40px;
+}
+
+.logo {
+  position: relative;
+  top: 10px;
+  margin-left: 60px;
+  display: flex;
+  background-image: url(logo.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 93px;
+  height: 93px;
+}
+
+.h1-logo {
+  padding-top: 35px;
+  font-size: 40px;
+  color: white;
+  margin-left: 5px;
+}
+
+.container {
+  width: 600px;
+  height: 450px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background-color: transparent;
+}
+
+.form-container {
+  border-top-left-radius: 80px;
+  border-top-right-radius: 80px;
+  color: white;
+  padding: 10px;
+  margin-left: 200px;
+  width: 600px;
+  background-color: #1D1D1D;
+  height: 100%;
+  overflow: hidden;
+}
+
+.sign-in-section {
+  max-width: 100%;
+  text-align: center;
+
+}
+
+.sign-in-section h1 {
+  margin-top: 15px;
+  margin-right: 90px;
+  margin-left: 90px;
+}
+
+.selector {
+  display: flex;
+  flex-direction: row;
+}
+
+.selector a {
+  text-decoration: none;
+  color: white;
+}
+
+.selector a:hover {
+  color: #D65882;
+}
+
+.google-btn {
+  background: white;
+  color: gray;
+  border: none;
+  border-radius: 4px;
+  width: 100%;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  cursor: pointer;
+}
+
+.gologo {
+  position: relative;
+  left: 155px;
+  display: flex;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  height: 30px;
+}
+
+.googlebar {
+  margin-top: 25px;
+  display: flex;
+  width: 81%;
+  height: 40px;
+  align-items: center;
+  margin-left: 60px;
+  background-color: white;
+  border-radius: 10px;
+}
+
+.linea-texto {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  margin-top: 10px;
+  margin-left: 50px;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.linea-texto::before,
+.linea-texto::after {
+
+  content: '';
+  flex-basis: 225px;
+  border-bottom: 3px solid white;
+  border-radius: 5px;
+  margin: 0 10px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+form input {
+  position: relative;
+  right: 55px;
+  padding: 10px;
+  margin: 10px 0;
+  border: 2px solid white;
+  background-color: #1D1D1D;
+  width: 40%;
+  height: 40px;
+  color: white;
+  border-radius: 15px;
+}
+
+input::placeholder {
+  position: relative;
+  top: 5px;
+  font-size: 32px;
+  font-weight: bold;
+  color: white;
+  opacity: 1;
+}
+
+form a {
+  color: white;
+  text-decoration: none;
+  font-size: 15px;
+  font-weight: bold;
+  margin-right: 235px;
+}
+
+form button {
+  margin-top: 10px;
+  background: #D65882;
+  margin: 10px 0;
+  color: white;
+  width: 44%;
+  height: 50px;
+  border-radius: 15px;
+  border: 2px solid white;
+  cursor: pointer;
+  position: relative;
+  right: 55px;
+  text-align: left;
+  font-size: 32px;
+  font-weight: bold;
+  padding-left: 10px;
+}
+
+form button:hover {
+  background-color: #1D1D1D;
+  color: #D65882;
+  border: 2px solid #D65882;
+}
+
+.pfinal {
+  margin-top: 10px;
+  margin-right: 125px;
+  color: white;
+  font-size: 15px;
+  font-weight: bold;
+
+}
+
+.pfinal a {
+  text-decoration: underline;
+  color: white;
+}
+
+
