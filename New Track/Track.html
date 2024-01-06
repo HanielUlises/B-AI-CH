@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Crear una nueva pista</title>
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div class="headerbach">
+      <button id="back-button">
+        <h1>BACK</h1>
+      </button>
+      <div class="h1-logo">Settings</div>
+      <a href="">
+        <div class="logo"></div>
+      </a>
+    </div>
+
+    <div class="settings-container">
+      <div class="header-settings">
+        <h1>Create a new track</h1>
+      </div>
+
+      <div class="tittle">
+        <h2>Track tittle</h2>
+        <input type="text" id="trackname" name="trackname">
+      </div>
+
+      <div class="dura">
+        <h2>Duration</h2>
+        <div class="tooltip">
+        <i class="fa-solid fa-circle-info"></i>
+        <span class="tooltiptext">With premium get up to 15 min</span></div>
+        <input type="number" id="min" name="setmin" min="0" max="59" placeholder="min">
+        <input type="number" id="seconds" name="setsec" min="0" max="59" placeholder="sec" >
+      </div>
+
+      <div class="tempo">
+        <h2>Tempo</h2>
+        <div class="tooltip">
+          <i class="fa-solid fa-circle-info"></i>
+          <span class="tooltiptext">Choose how fast the track should be</span></div>
+          <select id="tempo" name="tempo" >
+            <option value="slow">Slow</option>
+            <option value="medium" selected>Medium</option>
+            <option value="fast">Fast</option>
+          </select>
+      </div>
+
+      <div class="header-settings">
+       
+      <button id="next"> <a href="">Next</a></button>
+    </div>
+    </div>
+
+      
+<script src="script.js"></script>
+  </body>
+
+</html>
+
+
