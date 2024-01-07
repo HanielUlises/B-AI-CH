@@ -1,0 +1,158 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #1d1d1d;
+    margin: 0;
+    padding: 0;
+}
+
+.headerbach {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-decoration: none;
+    max-width: 100%;
+    height: 95px;
+    font-family: Arial, sans-serif;
+    text-decoration: none;
+    color: white;
+    padding: 0px 50px;
+
+}
+
+.body a {
+    text-decoration: none;
+    color: white;
+}
+
+.logo {
+    display: flex;
+    background-image: url(logo.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 78px;
+    height: 78px;
+}
+
+.h1-logo {
+    padding-top: 2px;
+    font-size: 40px;
+    color: white;
+    font-weight: bold;
+}
+
+#back-button {
+    height: 65%;
+    width: 10%;
+    background-color: #1d1d1d;
+    padding: 0;
+    margin: 0;
+    border-radius: 15px;
+    color: #D65882;
+    border: 1px solid #D65882;
+    cursor: pointer;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    transition: 0.3s;
+}
+
+#back-button:hover {
+    transition: 0.9s;
+    background-color: white;
+    border: 2px solid #D65882;
+}
+
+
+.header-feeling {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.header-feeling h1,a{
+    text-decoration: none;
+    color: white;
+}
+
+.feeling-container {
+    background-color: #D65882;
+    color: white;
+    width: 60%;
+    margin: auto;
+    padding: 20px;
+    border-radius: 8px;
+    position: relative;
+    top: -20px;
+}
+
+.feeling-box {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    margin: 0 ;
+}
+
+.feeling-img{
+    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 ;
+    height: 160px;
+}
+
+ .apply {
+    background: repeating-linear-gradient(-45deg, yellow, orange, orange, orange, orange,#f20746);
+  border:none;
+
+  color: white;
+  font-size: 30px;
+  font-weight: 800;
+  text-align: center;
+  width: 50%;
+  height: 50px;
+  border-radius: 30px;
+  margin: 0;
+  cursor: pointer;
+  transition: all 0.8s ease;
+}
+
+
+.apply:hover{
+    transform: scale(1.2);
+    box-shadow: 0 12px 18px rgba(0, 0, 0, 0.15); 
+}
+
+.feeling-box button{
+   background: #F18246;
+   border: none;
+   color: white;
+   font-size: 1.5rem;
+   font-weight: 800;
+   text-align: center;
+   width: 200px;
+   height: 50px;
+   border-radius: 40px;
+   margin: 20px;
+   cursor: pointer;
+   transition: all 0.8s ease;
+}
+
+.feeling-box button:hover{
+    transform: scale(1.2);
+    box-shadow: 0 12px 18px rgba(0, 0, 0, 0.15); 
+
+}
+
+img {
+    margin: 0, 20px;
+    display: flex;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 200px;
+    height: 80px;
+}
+
