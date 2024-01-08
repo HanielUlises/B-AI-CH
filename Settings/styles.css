@@ -1,0 +1,505 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #1d1d1d;
+    margin: 0;
+    padding: 0;
+}
+
+
+.headerbach {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-decoration: none;
+    max-width: 100%;
+    height: 95px;
+    font-family: Arial, sans-serif;
+    text-decoration: none;
+    color: white;
+    padding: 0px 50px;
+
+}
+
+.headerbach a {
+    text-decoration: none;
+}
+
+.logo {
+    display: flex;
+    background-image: url(logo.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 78px;
+    height: 78px;
+}
+
+.h1-logo {
+    padding-top: 2px;
+    font-size: 40px;
+    color: white;
+    font-weight: bold;
+}
+
+.header-settings {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.settings-container {
+    color: white;
+    width: 70%;
+
+    padding: 0 20px;
+    border-radius: 8px;
+    position: absolute;
+    left: 40px;
+}
+
+.profile-section {
+    display: flex;
+    align-items: center;
+    font-weight: bold;
+    font-size: 1.5rem;
+    text-align: left;
+}
+
+.profile-image {
+    display: flex;
+    background-image: url(perfil.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    border-radius: 50%;
+    margin-top: 10px;
+    margin-right: 10px;
+    width: 90px;
+    height: 90px;
+
+}
+
+.profile-info p {
+    margin: 0 15px;
+}
+
+.suscription-section {
+    display: flex;
+    flex-direction: column;
+
+}
+
+.information {
+    display: flex;
+    font-weight: bold;
+    font-size: 1.5rem;
+}
+
+.information p,
+h3 {
+    margin: 15px 0;
+}
+
+.status {
+    display: inline;
+    padding-left: 20px;
+}
+
+#upgrade-button {
+
+    border: none;
+    padding: 10px;
+    color: white;
+    cursor: pointer;
+    font-weight: bold;
+    text-align: center;
+    font-size: 30px;
+    background: repeating-linear-gradient(-45deg, yellow, orange, orange, orange, orange, #D65882);
+    width: 100%;
+    height: auto;
+    border-radius: 40px;
+
+    transition: transform 0.8s, box-shadow 0.9s;
+
+
+}
+
+#upgrade-button:hover {
+    transform: scale(1.3);
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.8);
+}
+
+
+.reset-delete {
+    width: 58%;
+}
+
+.reset-delete p {
+    margin-top: 2px;
+    font-size: 1.3rem;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.reset-delete h2 {
+    margin-bottom: 0;
+    font-size: 1.8rem;
+}
+
+.linea {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    font-size: 20px;
+    font-weight: bold;
+    width: 100%;
+    color: white;
+
+}
+
+.linea::before {
+    content: '';
+    flex-basis: 100%;
+    border-bottom: 3px solid white;
+    border-radius: 5px;
+
+}
+
+
+
+.reset-delete button {
+    background-color: #D65882;
+    width: 35%;
+    height: 50px;
+    border-radius: 10px;
+    color: black;
+    font-size: 0.8rem;
+    font-weight: bold;
+    cursor: pointer;
+    border: none;
+    padding: 10px;
+    transition: 0.5;
+}
+
+.reset-delete button:hover {
+    background-color: white;
+    color: #D65882;
+    transition: 0.5s;
+    border: 1px solid #D65882;
+}
+
+#delete-account:hover {
+    background-color: red;
+    color: white;
+    border-color: transparent;
+}
+
+#back-button {
+    height: 65%;
+    width: 10%;
+    background-color: #1d1d1d;
+    padding: 0;
+    margin: 0;
+    border-radius: 15px;
+    color: #D65882;
+    border: 1px solid #D65882;
+    cursor: pointer;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    transition: 0.3s;
+}
+
+#back-button:hover {
+    transition: 0.9s;
+    background-color: white;
+    border: 2px solid #D65882;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 2;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(5px);
+    opacity: 0;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    text-align: center;
+}
+
+.modal.active {
+    opacity: 1;
+}
+
+.modal-content {
+    background-color: black;
+    margin-left: 360px;
+    margin-top: 80px;
+    padding: 20px;
+    width: 40%;
+    border-radius: 5px;
+    position: relative;
+    z-index: 3;
+    bottom: 15px;
+    height: auto;
+    border: 2px solid white;
+    transform: scale(0.9);
+    transition: transform 0.8s ease;
+}
+
+.modal-content p {
+    text-align: left;
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.modal-content h2 {
+
+    color: white;
+    background-color: transparent;
+
+}
+
+.modal-content h1 {
+    text-align: center;
+    color: white;
+    background-color: transparent;
+}
+
+.modal-content.active {
+    transform: scale(1);
+}
+
+.close {
+    color: white;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: red;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.premiumModal {
+    background: repeating-linear-gradient(-45deg, yellow, orange, orange, orange, orange, #D65882);
+    width: 50%;
+    height: 50px;
+    border-radius: 40px;
+    font-size: 30px;
+    font-weight: bold;
+    text-align: center;
+    color: white;
+    height: auto;
+    border: none;
+    cursor: pointer;
+
+    transition: transform 0.8s;
+}
+
+.premiumModal:hover {
+
+    transform: scale(1.3);
+    transition: 0.8;
+}
+
+
+.lineapay {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.lineapay::before {
+    content: '';
+    flex-basis: 100%;
+    border-bottom: 5px solid white;
+    border-radius: 15px;
+    position: relative;
+    right: 20px;
+
+}
+
+.pass-content {
+    background-color: black;
+    margin-left: 360px;
+    margin-top: 80px;
+    padding: 20px;
+    width: 40%;
+    border-radius: 5px;
+    position: relative;
+    z-index: 3;
+    bottom: 15px;
+    height: auto;
+    border: 2px solid white;
+    transform: scale(0.9);
+    transition: transform 0.8s ease;
+}
+
+.pass-content.active {
+    transform: scale(1);
+}
+
+.pass-content p {
+    text-align: left;
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.pass-content h2 {
+    margin: 40px 10px 0 0;
+
+    color: white;
+    background-color: transparent;
+
+}
+
+.pass-content h1 {
+    text-align: center;
+    color: white;
+    background-color: transparent;
+    margin: 2px 0;
+}
+
+.password-box {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+}
+
+.pass-content input {
+    background-color: black;
+    border: 1px solid white;
+    border-radius: 5px;
+    color: white;
+    height: 30px;
+}
+
+.pass-content button {
+    background-color: #D65882;
+    width: 50%;
+    height: 80px;
+    border-radius: 15px;
+    color: white;
+    font-size: 1.9rem;
+    font-weight: bold;
+    cursor: pointer;
+    border: none;
+    padding: 10px;
+    transition: 0.5;
+    margin-top: 15px;
+}
+
+.pass-content button:hover {
+    background-color: white;
+    color: #D65882;
+    transition: 0.5s;
+    margin-top: 15px;
+    border: 1px solid #D65882;
+}
+
+
+
+.delete-content {
+    background-color: black;
+    margin-left: 360px;
+    margin-top: 80px;
+    padding: 20px;
+    width: 40%;
+    border-radius: 5px;
+    position: relative;
+    z-index: 3;
+    bottom: 15px;
+    height: auto;
+    border: 2px solid white;
+    transform: scale(0.9);
+    transition: transform 0.8s ease;
+}
+
+.delete-content.active {
+    transform: scale(1);
+}
+
+.delete-content p {
+    text-align: left;
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.delete-content h2 {
+    margin: 40px 10px 0 0;
+    color: white;
+    background-color: transparent;
+
+}
+
+.delete-content h1 {
+    text-align: center;
+    color: white;
+    background-color: transparent;
+    margin: 2px 0;
+}
+
+.delete-content h5 {
+    margin: 0;
+    color: white;
+    text-align: center;
+}
+
+.delete-box {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+}
+
+.delete-content textarea {
+    background-color: black;
+    border: 1px solid white;
+    border-radius: 5px;
+    color: white;
+    height: 60px;
+}
+
+.delete-content textarea::placeholder {
+    color: white;
+    font-size: 1rem;
+    justify-content: top;
+    font-family: sans-serif;
+}
+
+.delete-content button {
+    background-color: black;
+    width: 50%;
+    height: 80px;
+    border-radius: 15px;
+    color: red;
+    opacity: 0.3;
+    font-size: 1.9rem;
+    font-weight: bold;
+    cursor: pointer;
+    border: none;
+    padding: 10px;
+    transition: 0.5;
+    margin-top: 15px;
+}
+
+.delete-content button:hover {
+    background-color: red;
+    color: white;
+    transition: 0.5s;
+    margin-top: 15px;
+    border: 1px solid red;
+    opacity: 1;
+}
