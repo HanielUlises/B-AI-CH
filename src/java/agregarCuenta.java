@@ -13,6 +13,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
@@ -41,8 +42,16 @@ public class agregarCuenta extends HttpServlet {
             u.setEmail(correo);
             u.setPassword(contrasena);
             int estado=operC.AnadirUsuario(u);
+            Usuario c = operC.encontrarUsuario(correo, contrasena);
             if(estado >0){
-                response.sendRedirect("mainbach/Main.html");
+                HttpSession sesion = request.getSession(true);
+                sesion.setAttribute("usuario", c);
+                HttpSession sesionOK = request.getSession();
+                sesionOK.setAttribute("id", c.getId());
+                sesionOK.setAttribute("email", correo);
+                sesionOK.setAttribute("contra", contrasena);
+                sesionOK.setAttribute("estado", c.getEstado());
+                response.sendRedirect("mainbach/main.jsp");
             }else{
                 response.sendRedirect("error.html");
             }

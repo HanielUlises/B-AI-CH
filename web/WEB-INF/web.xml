@@ -8,6 +8,18 @@
         <servlet-name>iniciarSesion</servlet-name>
         <servlet-class>iniciarSesion</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>resetearContrasena</servlet-name>
+        <servlet-class>resetearContrasena</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>eliminarCuenta</servlet-name>
+        <servlet-class>eliminarCuenta</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>cerrarSesion</servlet-name>
+        <servlet-class>cerrarSesion</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>agregarCuenta</servlet-name>
         <url-pattern>/agregarCuenta</url-pattern>
@@ -15,6 +27,18 @@
     <servlet-mapping>
         <servlet-name>iniciarSesion</servlet-name>
         <url-pattern>/iniciarSesion</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>resetearContrasena</servlet-name>
+        <url-pattern>/resetearContrasena</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>eliminarCuenta</servlet-name>
+        <url-pattern>/eliminarCuenta</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>cerrarSesion</servlet-name>
+        <url-pattern>/cerrarSesion</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
