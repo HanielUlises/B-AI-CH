@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <title>Sing in-Sing up </title>
+    <link rel="stylesheet" href="styles.css">
+
+</head>
+
+<body>
+    <div class="headerbach"><a href="">
+            <div class="logo"></div>
+        </a>
+        <a href="">
+            <h1 class="h1-logo">BAICH</h1>
+        </a>
+    </div>
+
+
+    <div class="container" id="container">
+        <div class="form-container sign-up">
+            <form action="../agregarCuenta" method="POST">
+                <h1>Sign Up</h1>
+                <div class="googlebar">
+                    <div class="gologo">
+                        <img src="https://developers.google.com/identity/images/g-logo.png" alt="logogoogle">
+                    </div>
+                    <button class="google-btn">Sign up with Google</button>
+                </div>
+                <div class="linea-texto">
+                    <p>or</p>
+                </div>
+                
+                <label for="mail"></label>
+                <input type="email" id="mail" name="mail" placeholder="Email ID" required>
+                <label for="contra"></label>
+                <input type="password" id="contra" name="contra" placeholder="Password" required>
+                <button class="especial" type="submit">Sign up</button>
+                
+                <p class="pfinal">Already have an account? <span id="changein"><a href="#">Sign in</a></span></p>
+
+            </form>
+        </div>
+
+        <div class="form-container sign-in">
+            <form action="../iniciarSesion" method="POST">
+                <h1>Sign In</h1>
+                <div class="googlebar">
+                    <div class="gologo">
+                        <img src="https://developers.google.com/identity/images/g-logo.png" alt="logogoogle">
+                    </div>
+                    <button class="google-btn">Sign in with Google</button>
+                </div>
+                <div class="linea-texto">
+                    <p>or</p>
+                </div>
+
+                <label for="mailin"></label>
+                <input type="email" id="mailin" name="mailin" placeholder="Email ID" required>
+                <label for="contrain"></label>
+                <input type="password" id="contrain" name="contrain" placeholder="Password" required>
+                <a href="#">Forgot password?</a>
+                <button class="especial" type="submit">Sign in</button>
+                <p class="pfinal">You don’t have an account yet? <span id="changeup"> <a href="#">Sign up</a></span></p>
+            </form>
+        </div>
+
+
+        <div class="toggle-container">
+            <div class="toggle">
+                <div class="toggle-panel toggle-left">
+                    <h1>Music and <br>more music!</h1>
+                    <p>Do you remember Bach?</p>
+                    <button class="hidden" id="login">Sign In!</button>
+                </div>
+
+                <div class="toggle-panel toggle-right">
+
+                    <h1>Hello, Friend!</h1>
+                    <p>If you haven’t registered yet, <br>what are you waiting ? </p>
+                    <button class="hidden" id="register">Sign Up!</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>
