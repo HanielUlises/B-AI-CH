@@ -62,7 +62,7 @@ if(sessionOk.getAttribute("id")==null){
     </header>
 
     <div class="top-bar">
-        <button id="newproject" class="btn">Start a new project</button>
+        <button id="newproject" class="btn"><a style="color: white; text-decoration: none" href="../New Track/Track.html">Start a new project</a></button>
         <button id="upgradeBtn" class="btn premium">Upgrade to premium</button>
         
     </div>
@@ -93,7 +93,7 @@ if(sessionOk.getAttribute("id")==null){
         <div id="projectcont" class="project-container">
             <div class="project-card">
                 <img src="logo.jpg" alt="Dolor y gloria" height="100%">
-                <a href="#"><span>Dolor y gloria</span></a>
+                <a href="../New Track/Track.html"><span>Dolor y gloria</span></a>
             </div>
         </div>
 
@@ -176,7 +176,7 @@ if(sessionOk.getAttribute("id")==null){
         <div id="projectcont" class="project-container">
             <div class="project-card">
                 <img src="logo.jpg" alt="Dolor y gloria" height="100%">
-                <a href="#"><span>Dolor y gloria</span></a>
+                <a href="../New Track/Track.html"><span>Dolor y gloria</span></a>
             </div>
         </div>
 

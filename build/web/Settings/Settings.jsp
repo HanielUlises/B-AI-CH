@@ -33,7 +33,7 @@ if(sessionOk.getAttribute("id")==null){
 <body>
     <div class="headerbach">
         <button id="back-button">
-            <h1><a href="../mainbach/main.jsp">BACK</a></h1>
+            <h1>BACK</a></h1>
         </button>
         <div class="h1-logo">Settings</div>
         <a href="">
