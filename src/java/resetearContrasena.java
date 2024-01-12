@@ -82,7 +82,7 @@ public class resetearContrasena extends HttpServlet {
                    
                 
                 }catch(Exception e){
-                    System.out.println("Que pedo que pedo");
+                    System.out.println("Error");
                     System.out.println(e.getMessage());
                     System.out.println(e.getStackTrace());
                 }
