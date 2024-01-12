@@ -40,10 +40,30 @@
       <button class="apply" id="next"> <a href="">Apply</a></button>
     </div>
     </div>
-
-
   </body>
+  <!--Event listener para guardar los géneros escogidos por usuario-->
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        var buttons = document.querySelectorAll('.gender-box button');
+        buttons.forEach(function(button) {
+            button.addEventListener('click', function() {
+                enviarGenero(button.id);
+            });
+        });
+    });
 
+    function enviarGenero(genero) {
+        fetch('/api/guardar-genero', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ genero: genero }),
+        })
+        .then(response => response.json())
+        .then(data => console.log(data));
+    }
+</script>
 </html>
 
 

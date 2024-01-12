@@ -18,29 +18,31 @@
 
 package Modelo_music_gen;
 
+import java.net.URI;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 import java.net.http.HttpResponse.BodyHandlers;
 import org.json.JSONObject;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 
 public class ControladorMusicaJava {
 
     private static final String API_URL = "https://api-inference.huggingface.co/models/facebook/musicgen-small";
-    private static final String API_TOKEN = "...";
+    private static final String API_TOKEN = "..."; 
 
     public static void main(String[] args) {
-        // Es a partir de este string, de donde se obtiene el prompt
-        // el prompt se provee de la página web, es, pues, ingresada por el usuario
-        String prompt;
         try {
+            String prompt = obtenerPromptDeBaseDeDatos();
+
             HttpClient client = HttpClient.newHttpClient();
 
-            // Cuerpo de la petición
             JSONObject json = new JSONObject();
             json.put("inputs", prompt);
 
-            // Llamada a petición
             HttpRequest request = HttpRequest.newBuilder()
                     .uri(URI.create(API_URL))
                     .header("Authorization", "Bearer " + API_TOKEN)
@@ -54,5 +56,29 @@ public class ControladorMusicaJava {
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+    private static String obtenerPromptDeBaseDeDatos() {
+        String prompt = "";
+        // Conexión modificala sam jeje para q testees
+        String url = " ";
+        String user = " ";
+        String password = " ";
+
+        // Consulta SQL
+        String sql = "SELECT texto_prompt FROM Prompts_IA_Musica WHERE ...";
+
+        try (Connection conn = DriverManager.getConnection(url, user, password);
+             PreparedStatement pstmt = conn.prepareStatement(sql)) {
+
+            try (ResultSet rs = pstmt.executeQuery()) {
+                if (rs.next()) {
+                    prompt = rs.getString("texto_prompt");
+                }
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return prompt;
     }
 }

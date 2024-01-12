@@ -83,7 +83,7 @@ public class iniciarSesion extends HttpServlet {
                    
                 
             }catch(Exception e){
-                System.out.println("Que pedo que pedo");
+                System.out.println("Jajja");
                 System.out.println(e.getMessage());
                 System.out.println(e.getStackTrace());
             }

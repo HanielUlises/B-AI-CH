@@ -77,7 +77,7 @@ public class eliminarCuenta extends HttpServlet {
                    
                 
                 }catch(Exception e){
-                    System.out.println("Que pedo que pedo");
+                    System.out.println("Quien le dice na");
                     System.out.println(e.getMessage());
                     System.out.println(e.getStackTrace());
                 }
