@@ -36,7 +36,7 @@ public class ControladorMusicaJava {
 
     public static void main(String[] args) {
         try {
-            String prompt = obtenerPromptDeBaseDeDatos();
+            String prompt = promptRecupBD();
 
             HttpClient client = HttpClient.newHttpClient();
 
@@ -58,7 +58,7 @@ public class ControladorMusicaJava {
         }
     }
 
-    private static String obtenerPromptDeBaseDeDatos() {
+    private static String promptRecupBD() {
         String prompt = "";
         // Conexión modificala sam jeje para q testees
         String url = " ";
