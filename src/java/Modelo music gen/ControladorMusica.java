@@ -21,7 +21,7 @@ import java.net.http.HttpResponse;
 import java.net.http.HttpResponse.BodyHandlers;
 import org.json.JSONObject;
 
-public class HuggingfaceAPIExample {
+public class ControladorMusicaJava {
 
     private static final String API_URL = "https://api-inference.huggingface.co/models/facebook/musicgen-small";
     private static final String API_TOKEN = "...";
