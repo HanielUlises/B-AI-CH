@@ -16,7 +16,7 @@ import javax.servlet.http.HttpSession;
  *
  * @author Samuel
  */
-public class iniciarSesion extends HttpServlet {
+public class resetearContrasena extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -49,29 +49,28 @@ public class iniciarSesion extends HttpServlet {
         request.setCharacterEncoding("UTF-8");
         try (PrintWriter out = response.getWriter()) {
             int nivel=0;
-            String noms, cons;
-            noms=request.getParameter("mailin");
-            cons=request.getParameter("contrain");
-            
-            try{
-                Usuario opc = new Usuario();
-                Usuario c = opc.encontrarUsuario(noms, cons);
-                System.out.println("aaaaaaaaa"+c.getEmail());
-                if (c.getEmail()==null) {
-                    response.sendRedirect("error.html");
-                }else{
-                    HttpSession sesion = request.getSession(true);
-                    sesion.setAttribute("usuario", c);
-                    HttpSession sesionOK = request.getSession();
-                    sesionOK.setAttribute("id", c.getId());
-                    sesionOK.setAttribute("email", noms);
-                    sesionOK.setAttribute("contra", cons);
-                    sesionOK.setAttribute("estado", c.getEstado());
-                    response.sendRedirect("mainbach/main.jsp");
-                }
-                
-                
+            String oldcontra, newcontra;
+            HttpSession sessionOk = request.getSession();
+            String oldcontracomp = (String)sessionOk.getAttribute("contra");
+            oldcontra= request.getParameter("old-password");
+            if (!oldcontra.equals(oldcontracomp)) {
+                response.sendRedirect("Settings/Settings.jsp?param=0");
+            }else{
+                newcontra=request.getParameter("new-password");
+                int id = (Integer)sessionOk.getAttribute("id");
 
+                try{
+                    Usuario opc = new Usuario();
+                    int estatus = opc.actualizarContrasena(newcontra,id);
+                    if (estatus==1) {
+
+                        
+                        sessionOk.setAttribute("contra", newcontra);
+                        response.sendRedirect("Settings/Settings.jsp?param=1");
+                    }else{
+                        response.sendRedirect("error.html");
+                    }
+            
                     /*
                 HttpSession sesion = request.getSession(true);
                 sesion.setAttribute("usuario", c);
@@ -82,12 +81,12 @@ public class iniciarSesion extends HttpServlet {
                     */
                    
                 
-            }catch(Exception e){
-                System.out.println("Que pedo que pedo");
-                System.out.println(e.getMessage());
-                System.out.println(e.getStackTrace());
+                }catch(Exception e){
+                    System.out.println("Que pedo que pedo");
+                    System.out.println(e.getMessage());
+                    System.out.println(e.getStackTrace());
+                }
             }
-            
         }
         
     }

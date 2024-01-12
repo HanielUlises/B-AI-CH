@@ -17,6 +17,7 @@ public class Usuario {
     private int id;
     private String email;
     private String password;
+    private int estado;
     
     private int datosBancarios;
 
@@ -58,6 +59,7 @@ public class Usuario {
             c.setId(rs.getInt(1));
             c.setEmail(rs.getString(2));
             c.setPassword(rs.getString(3));
+            c.setEstado(rs.getInt(4));
             break;
         }
         con.close();
@@ -65,6 +67,48 @@ public class Usuario {
             con.close();
         }
         return c;
+    }
+    public int actualizarContrasena(String contra, int id) throws SQLException{
+        int estatus = 0;
+        Connection con = conexion.getConexion();
+        String sql = "";
+        PreparedStatement ps = null;
+        try{
+            sql= "update usuarios set contrasena=? where user_id =?";
+            ps = con.prepareStatement(sql);
+            ps.setString(1, contra);
+            ps.setInt(2, id);
+            estatus += ps.executeUpdate();
+        }catch(Exception ed){
+            System.out.println("No conecto a la tabla");
+            System.out.println(ed.getMessage());
+            System.out.println(ed.getStackTrace());
+        }finally{
+            ps.close();
+            con.close();
+        }
+        return estatus;
+    }
+    public int EliminarUsuario(int id) throws SQLException{
+        Connection con = null;
+        PreparedStatement ps = null;
+        String q=null;
+        int estatus = 0;
+        try{
+            con = conexion.getConexion();
+            q ="delete from usuarios where user_id=?";
+            ps = con.prepareStatement(q);
+            ps.setInt(1, id);
+            estatus += ps.executeUpdate();
+        }catch (Exception ed){
+            System.out.println("No conecto a la tabla");
+            System.out.println(ed.getMessage());
+            System.out.println(ed.getStackTrace());
+        }finally{
+            ps.close();
+            con.close();
+        }
+        return estatus;   
     }
     public String getEmail() {
         return email;
@@ -96,6 +140,14 @@ public class Usuario {
 
     public void setId(int id) {
         this.id = id;
+    }
+
+    public int getEstado() {
+        return estado;
+    }
+
+    public void setEstado(int estado) {
+        this.estado = estado;
     }
     
     
