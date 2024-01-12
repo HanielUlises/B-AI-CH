@@ -27,12 +27,15 @@ public class HuggingfaceAPIExample {
     private static final String API_TOKEN = "...";
 
     public static void main(String[] args) {
+        // Es a partir de este string, de donde se obtiene el prompt
+        // el prompt se provee de la página web, es, pues, ingresada por el usuario
+        String prompt;
         try {
             HttpClient client = HttpClient.newHttpClient();
 
             // Cuerpo de la petición
             JSONObject json = new JSONObject();
-            json.put("inputs", "liquid drum and bass, atmospheric synths, airy sounds");
+            json.put("inputs", prompt);
 
             // Llamada a petición
             HttpRequest request = HttpRequest.newBuilder()
