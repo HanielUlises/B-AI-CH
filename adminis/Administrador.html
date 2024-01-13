@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Tabla de Usuarios</title>
+</head>
+<body>
+
+    <div class="headerbach">
+        <button id="back-button">
+          <h1>BACK</h1>
+        </button>
+       
+        <div class="h1-logo">Administrador</div>
+        <a href="">
+          <div class="logo"></div>
+        </a>
+      </div>
+
+      <div class="report-container">
+        <div class="header-report">
+    <h1>Tabla de Usuarios</h1>
+</div>
+
+    <table id="userTable">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nombre</th>
+                <th>Email</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Los datos de los usuarios se agregan aquí con js -->
+        </tbody>
+    </table>
+
+    <button onclick="mostrarReportes()">Mostrar Reportes</button>
+
+    <div id="reportContainer">
+        <!-- aqui aparecen -->
+    </div>
+</div>
+    <script src="script.js"></script>
+</body>
+</html>
