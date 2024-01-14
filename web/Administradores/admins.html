@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <script src="script.js"></script>
+    <link rel="stylesheet" href="admin-styles.css">
+</head>
+<body>
+    <h1>Admin Dashboard</h1>
+    <div class = "change-password">
+        <form action="/AdminServlet" method="post">
+            <input type="hidden" name="action" value="updatePassword">
+            <input type="number" name="userId" placeholder="User ID" required>
+            <input type="password" name="newPassword" placeholder="New Password" required>
+            <button type="submit">Update Password</button>
+        </form>
+    </div>
+    <div class="delete-user">
+        <form action="/AdminServlet" method="post">
+            <input type="hidden" name="action" value="deleteUser">
+            <input type="number" name="userId" placeholder="User ID" required>
+            <button type="submit">Delete User</button>
+        </form>
+    </div>
+    <div class="userList">
+        <a href="/ListarUsuariosServlet" target="_blank">View User List</a>
+    </div>
+
+</body>
+</html>
