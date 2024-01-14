@@ -18,6 +18,7 @@
 
 package Modelo_music_gen;
 
+import Controlador.conexion;
 import java.net.URI;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
@@ -28,13 +29,14 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 
-public class ControladorMusicaJava {
+public class ControladorMusica {
 
     private static final String API_URL = "https://api-inference.huggingface.co/models/facebook/musicgen-small";
     private static final String API_TOKEN = "..."; 
 
-    public static void main(String[] args) {
+    public static void generarCancion() {
         try {
             String prompt = promptRecupBD();
 
@@ -58,27 +60,23 @@ public class ControladorMusicaJava {
         }
     }
 
-    private static String promptRecupBD() {
+    private static String promptRecupBD() throws SQLException {
         String prompt = "";
-        // Conexión modificala sam jeje para q testees
-        String url = " ";
-        String user = " ";
-        String password = " ";
 
         // Consulta SQL
         String sql = "SELECT texto_prompt FROM Prompts_IA_Musica WHERE ...";
 
-        try (Connection conn = DriverManager.getConnection(url, user, password);
-             PreparedStatement pstmt = conn.prepareStatement(sql)) {
+        Connection con = conexion.getConexion();
+        PreparedStatement pstmt = con.prepareStatement(sql);
 
             try (ResultSet rs = pstmt.executeQuery()) {
                 if (rs.next()) {
                     prompt = rs.getString("texto_prompt");
                 }
+            }catch (Exception e) {
+                e.printStackTrace();
             }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+        
         return prompt;
     }
 }

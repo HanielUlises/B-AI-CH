@@ -19,6 +19,7 @@ if(sessionOk.getAttribute("id")==null){
     id = (Integer)session.getAttribute("id");
     int estado = (Integer)session.getAttribute("estado");
 
+    if (estado==0) {
 %>
 <!DOCTYPE html>
 <html lang="en">
@@ -33,7 +34,7 @@ if(sessionOk.getAttribute("id")==null){
 <body>
     <div class="headerbach">
         <button id="back-button">
-            <h1>BACK</a></h1>
+            <h1><a href="../mainbach/main.jsp">BACK</a></h1>
         </button>
         <div class="h1-logo">Settings</div>
         <a href="">
@@ -96,7 +97,7 @@ if(sessionOk.getAttribute("id")==null){
 
             </ul>
 
-            <button class="premiumModal">Upgrade for $6</button>
+            <a href="../Pago/pago.jsp"><button class="premiumModal">Upgrade for $6</button></a>
         </div>
     </div>
 
@@ -162,5 +163,8 @@ if(sessionOk.getAttribute("id")==null){
 
 </html>
 <%    
+    }
+%>
+<%
 }
 %>

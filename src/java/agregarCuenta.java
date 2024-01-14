@@ -58,7 +58,6 @@ public class agregarCuenta extends HttpServlet {
         }   catch (SQLException ex) {
             Logger.getLogger(agregarCuenta.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
 
     }
                 

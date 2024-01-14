@@ -62,7 +62,7 @@ if(sessionOk.getAttribute("id")==null){
     </header>
 
     <div class="top-bar">
-        <button id="newproject" class="btn"><a style="color: white; text-decoration: none" href="../New Track/Track.html">Start a new project</a></button>
+        <a href="../New Track/Track.jsp" style="text-decoration: none"><button id="newproject" class="btn">Start a new project</button></a>
         <button id="upgradeBtn" class="btn premium">Upgrade to premium</button>
         
     </div>
@@ -83,7 +83,7 @@ if(sessionOk.getAttribute("id")==null){
                 
             </ul>
             
-            <button class="premiumModal">Upgrade for $6</button>
+            <button class="premiumModal"><a href="..\Pago\pago.jsp">Upgrade for $6</a></button>
         </div>
     </div>
 
@@ -93,12 +93,12 @@ if(sessionOk.getAttribute("id")==null){
         <div id="projectcont" class="project-container">
             <div class="project-card">
                 <img src="logo.jpg" alt="Dolor y gloria" height="100%">
-                <a href="../New Track/Track.html"><span>Dolor y gloria</span></a>
+                <a href="#"><span>Dolor y gloria</span></a>
             </div>
         </div>
 
     </main>
-    <script src="script.js"></script>
+    <script src="script2.js"></script>
 </body>
 
 </html>
@@ -137,7 +137,7 @@ if(sessionOk.getAttribute("id")==null){
                 <div class="linea-texto">
                 </div>
 
-                <button><a href="../Settings/Settings.jsp">Settings </a></button>
+                <button><a href="../settingspremium/Settingpremium.jsp">Settings </a></button>
                 <div class="linea-texto">
                 </div>
                 <button><a href="../cerrarSesion">Sing out</a></button>
@@ -146,42 +146,18 @@ if(sessionOk.getAttribute("id")==null){
     </header>
 
     <div class="top-bar">
-        <button id="newproject" class="btn">Start a new project</button>
-        
+        <button id="newproject" class="btn"><a href="../New Track/Track.jsp" style="text-decoration: none; color: white">Start a new project</a></button>        
     </div>
-    <div id="premiumModal" class="modal">
-        <!-- Contenido del modal -->
-        <div class="modal-content">
-            <span class="close">&times;</span>
-            <h1>★  Become premium</h1>
-            <h2>Great for musicians, influencers, cinema directors and any creator in general!</h2>
-            <ul>
-                <div class="lineapay"></div>
-                <p>✓   15 min tracks duration</p>
-                <div class="lineapay"></div>
-                <p>✓   Get pcense for downloaded music</p>
-                <div class="lineapay"></div>
-                <p>✓   Direct access to new features</p>
-                <div class="lineapay"></div>
-                
-            </ul>
-            
-            <button class="premiumModal">Upgrade for $6</button>
-        </div>
-    </div>
-
     <main>
-
         <h1 class="h1-tittle">My projects</h1>
         <div id="projectcont" class="project-container">
             <div class="project-card">
                 <img src="logo.jpg" alt="Dolor y gloria" height="100%">
-                <a href="../New Track/Track.html"><span>Dolor y gloria</span></a>
+                <a href="#"><span>Dolor y gloria</span></a>
             </div>
         </div>
-
     </main>
-    <script src="script.js"></script>
+    <script src="script2.js"></script>
 </body>
 
 </html>

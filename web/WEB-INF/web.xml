@@ -20,6 +20,10 @@
         <servlet-name>cerrarSesion</servlet-name>
         <servlet-class>cerrarSesion</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>validarTarjeta</servlet-name>
+        <servlet-class>validarTarjeta</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>agregarCuenta</servlet-name>
         <url-pattern>/agregarCuenta</url-pattern>
@@ -39,6 +43,10 @@
     <servlet-mapping>
         <servlet-name>cerrarSesion</servlet-name>
         <url-pattern>/cerrarSesion</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>validarTarjeta</servlet-name>
+        <url-pattern>/validarTarjeta</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

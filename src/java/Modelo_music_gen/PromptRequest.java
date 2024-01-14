@@ -1,12 +1,13 @@
+package Modelo_music_gen;
 public class PromptRequest {
-    private int userId;
-    private String textoPrompt;
+    private static int userId;
+    private static String textoPrompt;
 
     public static int getUserId(){
         return userId;
     }
 
-    public static String getPrompt(){
+    public static String getTextoPrompt(){
         return textoPrompt;
     }
 }

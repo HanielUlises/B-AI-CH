@@ -122,6 +122,4 @@ body,html {
     height: 100vh; 
     border-radius: 50%; 
     clip-path: polygon(0 0, 100% 0, 100% 75%, 50% 75%, 0 75%);
-}#next {
-
 }

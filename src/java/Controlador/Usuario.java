@@ -8,6 +8,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.Arrays;
 
 /**
  *
@@ -148,6 +149,27 @@ public class Usuario {
 
     public void setEstado(int estado) {
         this.estado = estado;
+    }
+
+    public int pagarSuscripcion(String idS) {
+        int estatus = -1;
+        int id = Integer.parseInt(idS);
+        try{
+            Connection con = conexion.getConexion();
+            
+            String q1="update usuarios set estado_suscripcion=? where user_id =?";
+            PreparedStatement ps1 = con.prepareStatement(q1);
+            ps1.setInt(1, 1);
+            ps1.setInt(2, id);
+            estatus=ps1.executeUpdate();
+            System.out.println(estatus);
+            con.close();
+        }catch(SQLException ed){
+            System.out.println("Error al guardar usuario");
+            System.out.println(ed.getMessage());
+            System.out.println(Arrays.toString(ed.getStackTrace()));
+        }
+        return estatus;
     }
     
     
