@@ -30,31 +30,32 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.Arrays;
 
 public class ControladorMusica {
 
     private static final String API_URL = "https://api-inference.huggingface.co/models/facebook/musicgen-small";
-    private static final String API_TOKEN = "..."; 
+    private static final String API_TOKEN = "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"; 
 
-    public static void generarCancion() {
+    public void generarCancion(String feeling, String tempo, String genre) {
         try {
-            String prompt = promptRecupBD();
+            //String prompt = promptRecupBD();
 
             HttpClient client = HttpClient.newHttpClient();
 
-            JSONObject json = new JSONObject();
-            json.put("inputs", prompt);
+            String enviar=genre+" track with tempo "+tempo+" and "+feeling+" melody";
 
             HttpRequest request = HttpRequest.newBuilder()
                     .uri(URI.create(API_URL))
                     .header("Authorization", "Bearer " + API_TOKEN)
                     .header("Content-Type", "application/json")
-                    .POST(HttpRequest.BodyPublishers.ofString(json.toString()))
+                    .POST(HttpRequest.BodyPublishers.ofString(enviar))
                     .build();
 
             HttpResponse<byte[]> response = client.send(request, BodyHandlers.ofByteArray());
 
             byte[] audioBytes = response.body();
+            System.out.println(Arrays.toString(audioBytes));
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -64,7 +65,7 @@ public class ControladorMusica {
         String prompt = "";
 
         // Consulta SQL
-        String sql = "SELECT texto_prompt FROM Prompts_IA_Musica WHERE ...";
+        String sql = "SELECT texto_prompt FROM Prompts_IA_Musica";
 
         Connection con = conexion.getConexion();
         PreparedStatement pstmt = con.prepareStatement(sql);

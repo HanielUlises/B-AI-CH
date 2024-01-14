@@ -120,41 +120,41 @@ if(sessionOk.getAttribute("id")==null){
       <div class="header-feeling">
         <h1>What feeling would you like to asign to this track?</h1>
       </div>
-
+        <form action="../generar_cancion" method="POST">
             <input type="hidden" name="gender" value="<%=gender%>"/>
             <input type="hidden" name="tempo" value="<%=tempo%>"/>
             <div class="feeling-box">
-                    <div class="feeling-img">
-                        <input type="hidden" name="feeling" value="sad"/>
-                        <img src="15.png" alt="Sad" id="sadimg">
-                        <button id="sad">Sad</button>
-                    </div>
-                    <div class="feeling-img">
-                        <input type="hidden" name="feeling" value="calm"/>
-                        <img src="16.png" alt="Calm">
-                        <button id="calm">Calm</button>
-                    </div>
-                    <div class="feeling-img">
-                        <input type="hidden" name="feeling" value="happy"/>
-                        <img src="17.png" alt="Happy">
-                        <button id="happy">Happy</button>
-                    </div>
+                <div class="feeling-img">
+                    <input type="hidden" name="feeling" value="sad"/>
+                    <img src="15.png" alt="Sad" id="sadimg">
+                    <button type="submit" id="sad">Sad</button>
+                </div>
+                <div class="feeling-img">
+                    <input type="hidden" name="feeling" value="calm"/>
+                    <img src="16.png" alt="Calm">
+                    <button type="submit"  id="calm">Calm</button>
+                </div>
+                <div class="feeling-img">
+                    <input type="hidden" name="feeling" value="happy"/>
+                    <img src="17.png" alt="Happy">
+                    <button  type="submit" id="happy">Happy</button>
+                </div>
             </div>
             <div class="feeling-box">
                 <div class="feeling-img">
                     <input type="hidden" name="feeling" value="moved"/>
                     <img src="18.png" alt="Sad">
-                    <button id="moved">Moved</button>
+                    <button  type="submit" id="moved">Moved</button>
                 </div>    
                 <div class="feeling-img">
                     <input type="hidden" name="feeling" value="angry"/>
                     <img src="19.png" alt="Sad">
-                    <button id="angry">Angry</button>
+                    <button  type="submit" id="angry">Angry</button>
                 </div>
                 <div class="feeling-img">
                     <img src="20.png" alt="Sad">
                     <input type="hidden" name="feeling" value="motivational"/>
-                    <button id="motivational">Motivational</button>
+                    <button type="submit" id="motivational">Motivational</button>
                 </div>    
             </div>
         </form>
@@ -184,7 +184,7 @@ if(sessionOk.getAttribute("id")==null){
         console.log(tempo);
         console.log(feeling);
         
-        fetch('/api/guardar-genero', {
+        fetch('/api/guardar-feeling', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',

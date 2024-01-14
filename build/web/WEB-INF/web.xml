@@ -24,6 +24,10 @@
         <servlet-name>validarTarjeta</servlet-name>
         <servlet-class>validarTarjeta</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>generar_cancion</servlet-name>
+        <servlet-class>generar_cancion</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>agregarCuenta</servlet-name>
         <url-pattern>/agregarCuenta</url-pattern>
@@ -47,6 +51,10 @@
     <servlet-mapping>
         <servlet-name>validarTarjeta</servlet-name>
         <url-pattern>/validarTarjeta</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>generar_cancion</servlet-name>
+        <url-pattern>/generar_cancion</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
