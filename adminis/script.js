@@ -17,22 +17,59 @@ function llenarTabla() {
     });
 }
 
+function toggleReportes() {
+    const reportContainer = document.querySelector('#reportContainer');
+    const toggleButton = document.querySelector('#toggleReportButton');
+
+    
+    if (reportContainer.style.display === 'none' || reportContainer.style.display === '') {
+        // Mostrar reportes
+        reportContainer.style.display = 'block';
+        toggleButton.textContent = 'Ocultar Reportes';
+        mostrarReportes();
+    } else {
+        // Ocultar reportes
+        reportContainer.style.display = 'none';
+        toggleButton.textContent = 'Mostrar Reportes';
+    }
+}
+
+
 function mostrarReportes() {
     const reportContainer = document.querySelector('#reportContainer');
+        
+        if (usuariosBorrados.length > 0) {
+        
+            let tableHtml = '<h2>Reportes:</h2><table><thead><tr><th>ID Usuario Borrado</th><th>Reason</th><th>Feedback</th></tr></thead><tbody>';
+    
+        
+            usuariosBorrados.forEach(userId => {
+        
+                tableHtml += `<tr><td>${userId}</td><td>Info reason</td><td>Info feedback</td></tr>`;
+            });
+    
+       
+            tableHtml += '</tbody></table>';
+    
+       
+            reportContainer.innerHTML = tableHtml;
+        } else {
+       
+            reportContainer.innerHTML = '<p>No hay usuarios borrados.</p>';
+        }
     
     
-    reportContainer.innerHTML = '<h2>Reportes:</h2><p>Reporte 1: ...</p><p>Reporte 2: ...</p>';
 }
 
 
 function borrarUsuario(userId) {
    
     usuarios = usuarios.filter(usuario => usuario.id !== userId);
-   
+    usuariosBorrados.push(userId);
     console.log(`Usuario con ID ${userId} borrado.`);
     llenarTabla();
 
 }
-
+let usuariosBorrados = [];
 
 llenarTabla();
