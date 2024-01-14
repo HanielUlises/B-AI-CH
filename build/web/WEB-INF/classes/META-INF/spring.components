@@ -1,5 +1,1 @@
-Modelo_music_gen.GeneroMusicalController=org.springframework.stereotype.Component
-Modelo_music_gen.GeneroMusicalService=org.springframework.stereotype.Component
-Modelo_music_gen.PromptController=org.springframework.stereotype.Component
 Modelo_music_gen.PromptRepository=org.springframework.stereotype.Component
-Modelo_music_gen.PromptService=org.springframework.stereotype.Component

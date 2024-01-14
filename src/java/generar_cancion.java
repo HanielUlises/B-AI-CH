@@ -3,13 +3,18 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Servlet.java to edit this template
  */
 
+import Modelo_music_gen.ArchivoAudio;
 import Modelo_music_gen.ControladorMusica;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.Arrays;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
@@ -27,27 +32,66 @@ public class generar_cancion extends HttpServlet {
      * @throws IOException if an I/O error occurs
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
+            throws ServletException, IOException{
         response.setContentType("text/html;charset=UTF-8");
         
         String feeling = request.getParameter("feeling");
         String genre = request.getParameter("gender");
         String tempo = request.getParameter("tempo");
-        
-        ControladorMusica controla = new ControladorMusica();
-        controla.generarCancion(feeling, tempo, genre);
+       
         try ( PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Servlet generar_cancion</title>");            
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<h1>Servlet generar_cancion at " + request.getContextPath() + "</h1>");
-            out.println("</body>");
-            out.println("</html>");
+            out.println("<!DOCTYPE html>\n" +
+                "<html lang=\"en\">\n" +
+                "<head>\n" +
+                "<meta charset=\"UTF-8\">\n" +
+                "<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n" +
+                "<title>Waiting for track</title>\n" +
+                "<link rel=\"stylesheet\" href=\"Reloj/styles.css\">\n" +
+                "</head>\n" +
+                "<body>\n" +
+                    "<div class=\"gender-container\">\n" +
+                    "<div class=\"header-gender\">\n" +
+                    "<h1>Please wait while your track <br>\n" +
+                    "      is being generated</h1>\n" +
+                    "</div>\n" +
+                    "<div id=hourglassBox title=\"Compatible Chr/Op, FF, IE\"></div>\n" +
+                "</div>\n" +
+            "</body>\n" +
+            "</html>");
+            try {
+                Thread.sleep(1000);
+                ControladorMusica controla = new ControladorMusica();
+                HttpSession session = request.getSession();
+                int idUsu = (Integer)session.getAttribute("id");
+                System.out.println("aasdddddddddddddddsadasdasd");
+                byte[] ab=controla.generarCancion(feeling, tempo, genre, idUsu);
+                System.out.println("este es ab: "+Arrays.toString(ab));
+                if (ab!=null) {
+                    ArchivoAudio arau = new ArchivoAudio();
+                    arau.crearArchivoAudio(ab);            
+                    response.sendRedirect("Track ready/trackready.jsp");
+                }else{
+                    response.sendRedirect("error.jsp");
+                }
+            } catch (InterruptedException ex) {
+                Logger.getLogger(generar_cancion.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
         }
+       
+        
         
     }
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
