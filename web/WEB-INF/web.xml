@@ -25,8 +25,12 @@
         <servlet-class>validarTarjeta</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>generar_cancion</servlet-name>
-        <servlet-class>generar_cancion</servlet-class>
+        <servlet-name>ListarUsuariosSerlvet</servlet-name>
+        <servlet-class>ListarUsuariosSerlvet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>crearArchivo</servlet-name>
+        <servlet-class>crearArchivo</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>agregarCuenta</servlet-name>
@@ -53,15 +57,19 @@
         <url-pattern>/validarTarjeta</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>generar_cancion</servlet-name>
-        <url-pattern>/generar_cancion</url-pattern>
+        <servlet-name>ListarUsuariosSerlvet</servlet-name>
+        <url-pattern>/ListarUsuariosSerlvet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>crearArchivo</servlet-name>
+        <url-pattern>/crearArchivo</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
             30
         </session-timeout>
     </session-config>
-        <servlet>
+    <servlet>
         <servlet-name>AdminServlet</servlet-name>
         <servlet-class>Controlador.AdminServlet</servlet-class>
     </servlet>

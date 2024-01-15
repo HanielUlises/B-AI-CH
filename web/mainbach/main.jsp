@@ -4,10 +4,14 @@
     Author     : Samuel
 --%>
 
+<%@page import="Modelo_music_gen.ControladorMusica"%>
+<%@page import="java.util.ArrayList"%>
+<%@page import="java.util.List"%>
+<%@page import="Modelo_music_gen.ArchivoAudio"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@page import="Controlador.Usuario"%>
 <%
-int id=0;
+int id;
 String usuario="";
 String contrasena="";
 HttpSession sessionOk = request.getSession();
@@ -62,7 +66,7 @@ if(sessionOk.getAttribute("id")==null){
     </header>
 
     <div class="top-bar">
-        <a href="../New Track/Track.jsp" style="text-decoration: none"><button id="newproject" class="btn">Start a new project</button></a>
+        <a class="ab" href="../New Track/Track.jsp" style="text-decoration: none"><button id="newproject" class="btn">Start a new project</button></a>
         <button id="upgradeBtn" class="btn premium">Upgrade to premium</button>
         
     </div>
@@ -145,16 +149,31 @@ if(sessionOk.getAttribute("id")==null){
         </div>
     </header>
 
-    <div class="top-bar">
-        <button id="newproject" class="btn"><a href="../New Track/Track.jsp" style="text-decoration: none; color: white">Start a new project</a></button>        
+    <div class="top-bot">
+        <a href="../New Track/Track.jsp" style="text-decoration: none; color: white">
+            <button id="newproject" class="btn">Start a new project</button>
+        </a>
     </div>
     <main>
         <h1 class="h1-tittle">My projects</h1>
         <div id="projectcont" class="project-container">
+            <%
+                System.out.println("id:"+id);
+                ControladorMusica controlador = new ControladorMusica();
+                List<ArchivoAudio> listaA= controlador.obtenerCanciones(id);
+                for (ArchivoAudio archivo:listaA) {
+                
+                
+                %>
             <div class="project-card">
-                <img src="logo.jpg" alt="Dolor y gloria" height="100%">
-                <a href="#"><span>Dolor y gloria</span></a>
+                
+                <img src="6.png" alt="Dolor y gloria" height="100%">
+                <form action="../crearArchivo" method="POST">
+                    <input type="hidden" name="id_Prompt" value="<%=archivo.getPrompy_id()%>">
+                    <button type="submit"><span><%=archivo.getNombreTrack()%></span></button>
+                </form>
             </div>
+            <%}%>
         </div>
     </main>
     <script src="script2.js"></script>

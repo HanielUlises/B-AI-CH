@@ -11,10 +11,7 @@ int id=0;
 String usuario="";
 String contrasena="";
 HttpSession sessionOk = request.getSession();
-String feeling = request.getParameter("feeling");
-String genre = request.getParameter("gender");
-String tempo = request.getParameter("tempo");
-String nombreTrack = request.getParameter("nombreTrack");
+
 if(sessionOk.getAttribute("id")==null){
     response.sendRedirect("../error.jsp?admrs=2");  
 }else{
@@ -102,8 +99,6 @@ if(sessionOk.getAttribute("id")==null){
           <div class="logo"></div>
         </a>
       </div>
-        
-
       <div class="settings-container">
         <div class="header-settings">
             <h1>Your track is ready</h1>
@@ -144,7 +139,6 @@ if(sessionOk.getAttribute("id")==null){
                 <source src="archivo.wav">
                 Your browser does not support the audio.
             </audio>
-            <button id="indie" onclick="redireccionarRegenerate()">Regenerate</button>
             <button id="jazz" onclick="redireccionarMenu()">Menu</button>
           </div>
     </div>
@@ -156,9 +150,7 @@ if(sessionOk.getAttribute("id")==null){
 function redireccionarMenu(){
     window.location.href = "../mainbach/main.jsp";
 }
-function redireccionarRegenerate(){
-    window.location.href = "../Reloj/wait.jsp?feeling=<%=feeling%>&gender=<%=genre%>&tempo=<%=tempo%>&nombreT=<%=nombreTrack%>";
-}
+
 </script>
 <%
     }

@@ -2,6 +2,7 @@ package Controlador;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class Administrador extends Usuario {
@@ -19,14 +20,14 @@ public class Administrador extends Usuario {
         this.privilegio = privilegio;
     }
 
-    public int anadirAdministrador() throws SQLException {
+    public int anadirAdministrador(int id) throws SQLException {
         int estatus = -1;
         Connection con = conexion.getConexion();
+        System.out.println("ese we");
         try {
-            String q = "INSERT INTO Administradores (user_id, privilegio) VALUES (?, ?)";
+            String q = "INSERT INTO Administradores (user_id) VALUES (?)";
             PreparedStatement ps = con.prepareStatement(q);
-            ps.setInt(1, this.getId());
-            ps.setString(2, this.getPrivilegio());
+            ps.setInt(1, id);
             estatus = ps.executeUpdate();
         } catch (SQLException e) {
             System.out.println("Error al añadir administrador");
@@ -37,23 +38,29 @@ public class Administrador extends Usuario {
         return estatus;
     }
 
-    public int actualizarContrasena(String nuevaContrasena, int idUsuario) throws SQLException {
-        int estatus = 0;
+    public static Administrador encontrarAdministrador(int idUsuario) throws SQLException {
+
         Connection con = conexion.getConexion();
+        Administrador a = new Administrador();
     
         try {
-            String sql = "UPDATE Usuarios SET contraseña = ? WHERE user_id = ?";
+            String sql = "Select * from Administradores WHERE user_id = ?";
             PreparedStatement ps = con.prepareStatement(sql);
-            ps.setString(1, nuevaContrasena);
-            ps.setInt(2, idUsuario);
-            estatus = ps.executeUpdate();
+            ps.setInt(1, idUsuario);
+            ResultSet rs = ps.executeQuery();
+            while(rs.next()){
+                a.setId(rs.getInt(1));
+
+                break;
+            }
+            con.close();
         } catch (SQLException e) {
             System.out.println("Error al actualizar la contraseña");
             e.printStackTrace();
         } finally {
             con.close();
         }
-        return estatus;
+        return a;
     }
 
     public int eliminarUsuario(int idUsuario) throws SQLException {

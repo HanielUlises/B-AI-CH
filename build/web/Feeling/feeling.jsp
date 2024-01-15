@@ -19,7 +19,8 @@ if(sessionOk.getAttribute("id")==null){
     id = (Integer)session.getAttribute("id");
     int estado = (Integer)session.getAttribute("estado");
     String tempo = request.getParameter("tempo");
-    String gender = request.getParameter("gender");
+    String gender = request.getParameter("genre");
+    String nombreTrack = request.getParameter("nombreTrack");
     if (estado==0) {
     
 %>
@@ -120,86 +121,62 @@ if(sessionOk.getAttribute("id")==null){
       <div class="header-feeling">
         <h1>What feeling would you like to asign to this track?</h1>
       </div>
-        <form action="../generar_cancion" method="POST">
+        <form name="form1" action="../Reloj/wait.jsp" method="POST">
+        
             <input type="hidden" name="gender" value="<%=gender%>"/>
             <input type="hidden" name="tempo" value="<%=tempo%>"/>
+            <input type='hidden' name="nombreTrack" value='<%=nombreTrack%>'>
+            <input type="hidden" name="feeling" id="feeling">
             <div class="feeling-box">
                 <div class="feeling-img">
-                    <input type="hidden" name="feeling" value="sad"/>
                     <img src="15.png" alt="Sad" id="sadimg">
-                    <button type="submit" id="sad">Sad</button>
+                    <button type="submit" onclick="cambiarValor('sad')" id="sad">Sad</button>
                 </div>
                 <div class="feeling-img">
-                    <input type="hidden" name="feeling" value="calm"/>
                     <img src="16.png" alt="Calm">
-                    <button type="submit"  id="calm">Calm</button>
+                    <button type="submit" onclick="cambiarValor('calm')" id="calm">Calm</button>
                 </div>
                 <div class="feeling-img">
-                    <input type="hidden" name="feeling" value="happy"/>
                     <img src="17.png" alt="Happy">
-                    <button  type="submit" id="happy">Happy</button>
+                    <button  type="submit" onclick="cambiarValor('happy')" id="happy">Happy</button>
                 </div>
             </div>
             <div class="feeling-box">
                 <div class="feeling-img">
-                    <input type="hidden" name="feeling" value="moved"/>
                     <img src="18.png" alt="Sad">
-                    <button  type="submit" id="moved">Moved</button>
+                    <button  type="submit" onclick="cambiarValor('moved')" id="moved">Moved</button>
                 </div>    
                 <div class="feeling-img">
-                    <input type="hidden" name="feeling" value="angry"/>
                     <img src="19.png" alt="Sad">
-                    <button  type="submit" id="angry">Angry</button>
+                    <button  type="submit" onclick="cambiarValor('andry')" id="angry">Angry</button>
                 </div>
                 <div class="feeling-img">
                     <img src="20.png" alt="Sad">
-                    <input type="hidden" name="feeling" value="motivational"/>
-                    <button type="submit" id="motivational">Motivational</button>
+                    <button onclick="cambiarValor('motivational')" id="motivational">Motivational</button>
                 </div>    
             </div>
         </form>
       <div class="header-feeling">
-      <button class="apply" id="next">Apply</button>
+    
+
     </div>
     </div>
 
 
   </body>
-  <script>
 
-    document.addEventListener('DOMContentLoaded', function() {
-        console.log("a");
-        var buttons = document.querySelectorAll('.feeling-box button');
-        buttons.forEach(function(button) {
-            button.addEventListener('click', function() {
-                enviarGenero(button.value);
-            });
-        });
-    });
-
-    function enviarGenero(feeling) {
-        let genre = document.getElementsByName("gender");
-        let tempo = document.getElementsByName("tempo");
-        console.log(genre);
-        console.log(tempo);
-        console.log(feeling);
-        
-        fetch('/api/guardar-feeling', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({ genero: genre , sentimiento: feeling , temp: tempo }),
-        })
-        .then(response => response.json())
-        .then(data => console.log(data));
-    }
+</html>
+<script>
+  function cambiarValor(valor){
+    let i=document.getElementById('feeling').value=valor;
+  }
 </script>
 </html>
 
 
 <%
+    }
 }
-}
+
 %>
 

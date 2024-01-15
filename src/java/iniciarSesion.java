@@ -3,6 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Servlet.java to edit this template
  */
 
+import Controlador.Administrador;
 import Controlador.Usuario;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -56,18 +57,32 @@ public class iniciarSesion extends HttpServlet {
             try{
                 Usuario opc = new Usuario();
                 Usuario c = opc.encontrarUsuario(noms, cons);
+                
                 System.out.println("aaaaaaaaa"+c.getEmail());
                 if (c.getEmail()==null) {
                     response.sendRedirect("error.html");
                 }else{
-                    HttpSession sesion = request.getSession(true);
-                    sesion.setAttribute("usuario", c);
-                    HttpSession sesionOK = request.getSession();
-                    sesionOK.setAttribute("id", c.getId());
-                    sesionOK.setAttribute("email", noms);
-                    sesionOK.setAttribute("contra", cons);
-                    sesionOK.setAttribute("estado", c.getEstado());
-                    response.sendRedirect("mainbach/main.jsp");
+                    Administrador a = Administrador.encontrarAdministrador(c.getId());
+                    System.out.println(a.getId());
+                    if (a.getId()!=0) {
+                        
+                        HttpSession sesion = request.getSession(true);
+                        sesion.setAttribute("usuario", a);
+                        HttpSession sesionOK = request.getSession();
+                        sesionOK.setAttribute("id", a.getId());
+                        sesionOK.setAttribute("permisos", "1");
+                        response.sendRedirect("ListarUsuariosSerlvet");
+                    }else{
+                        HttpSession sesion = request.getSession(true);
+                        sesion.setAttribute("usuario", c);
+                        HttpSession sesionOK = request.getSession();
+                        sesionOK.setAttribute("id", c.getId());
+                        sesionOK.setAttribute("email", noms);
+                        sesionOK.setAttribute("contra", cons);
+                        sesionOK.setAttribute("estado", c.getEstado());
+                        response.sendRedirect("mainbach/main.jsp");
+                    }
+                    
                 }
                 
                 

@@ -1,1 +1,2 @@
+ListarUsuariosServlet=javax.servlet.annotation.WebServlet
 Modelo_music_gen.PromptRepository=org.springframework.stereotype.Component
