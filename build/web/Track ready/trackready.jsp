@@ -42,10 +42,12 @@ if(sessionOk.getAttribute("id")==null){
           <div class="logo"></div>
         </a>
       </div>
-
       <div class="settings-container">
         <div class="header-settings">
             <h1>Your track is ready</h1>
+            <audio src="archivo.wav" autoplay>
+                Your browser does not support the <code>audio</code> element.
+            </audio>
         </div>
 
         <div class="play-box">
@@ -76,11 +78,23 @@ if(sessionOk.getAttribute("id")==null){
         </div>
 
         <div class="gender-box">
-            <button id="indie">Regenerate</button>
-            <button id="hiphop">Downloand</button>
-            <button id="jazz">Menu</button>
+            <audio controls autoplay="true" loop>
+                <source src="archivo.wav">
+                Your browser does not support the audio.
+            </audio>
+            <button id="jazz" onclick="redireccionarMenu()">Menu</button>
           </div>
     </div>
+    <script src="path_to_your_script.js"></script>
+</body>
+</html>
+<script>
+    
+function redireccionarMenu(){
+    window.location.href = "../mainbach/main.jsp";
+}
+</script>
+
     <script src="path_to_your_script.js"></script>
 </body>
 </html>

@@ -97,7 +97,7 @@ if(sessionOk.getAttribute("id")==null){
         <div id="projectcont" class="project-container">
             <div class="project-card">
                 <img src="logo.jpg" alt="Dolor y gloria" height="100%">
-                <a href="#"><span>Dolor y gloria</span></a>
+                <span>Pay the premium subscription and you can save your projects</span>
             </div>
         </div>
 

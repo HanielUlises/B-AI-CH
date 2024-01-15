@@ -45,52 +45,48 @@ if(sessionOk.getAttribute("id")==null){
       </a>
     </div>
 
-    <form action="action">
+
     <div class="feeling-container">
       <div class="header-feeling">
         <h1>What feeling would you like to asign to this track?</h1>
       </div>
-
-    <div class="feeling-box">
-            <div class="feeling-img">
-                <img src="15.png" alt="Sad" id="sadimg">
-                <button id="sad">Sad</button>
-            </div>
-            <div class="feeling-img">
-                <img src="16.png" alt="Calm">
-                <button id="calm">Calm</button>
-            </div>
-            <div class="feeling-img">
-                <img src="17.png" alt="Happy">
-                <button id="happy">Happy</button>
-            </div>
-    </div>
-
-
-    <div class="feeling-box">
-        <div class="feeling-img">
-            <img src="18.png" alt="Sad">
-            <button id="moved">Moved</button>
-        </div>    
-        <div class="feeling-img">
-            <img src="19.png" alt="Sad">
-            <button id="angry">Angry</button>
-        </div>
-        <div class="feeling-img">
-            <img src="20.png" alt="Sad">
-            <button id="motivational">Motivational</button>
-        </div>    
-    </div>
-
-      <div class="header-feeling">
-      <button class="apply" id="next"> <a href="">Apply</a></button>
-    </div>
-    </div>
+        <form name="form1" action="../Reloj/wait.jsp" method="POST">
         
-    </form>
+            <input type="hidden" name="gender" value="<%=gender%>"/>
+            <input type="hidden" name="tempo" value="<%=tempo%>"/>
+            <input type='hidden' name="nombreTrack" value='<%=nombreTrack%>'>
+            <input type="hidden" name="feeling" id="feeling">
+            <div class="feeling-box">
+                <div class="feeling-img">
+                    <img src="15.png" alt="Sad" id="sadimg">
+                    <button type="submit" onclick="cambiarValor('sad')" id="sad">Sad</button>
+                </div>
+                <div class="feeling-img">
+                    <img src="16.png" alt="Angry">
+                    <button type="submit" onclick="cambiarValor('angry')" id="calm">Angry</button>
+                </div>
+                <div class="feeling-img">
+                    <img src="17.png" alt="Happy">
+                    <button  type="submit" onclick="cambiarValor('happy')" id="happy">Happy</button>
+                </div>
+            </div>
+            
+        </form>
+      <div class="header-feeling">
+    
+
+    </div>
+    </div>
+
 
   </body>
 
+</html>
+<script>
+  function cambiarValor(valor){
+    let i=document.getElementById('feeling').value=valor;
+  }
+</script>
 </html>
 <%
     }else{
@@ -148,7 +144,7 @@ if(sessionOk.getAttribute("id")==null){
                 </div>    
                 <div class="feeling-img">
                     <img src="19.png" alt="Sad">
-                    <button  type="submit" onclick="cambiarValor('andry')" id="angry">Angry</button>
+                    <button  type="submit" onclick="cambiarValor('angry')" id="angry">Angry</button>
                 </div>
                 <div class="feeling-img">
                     <img src="20.png" alt="Sad">

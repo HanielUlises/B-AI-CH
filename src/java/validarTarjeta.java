@@ -45,12 +45,12 @@ public class validarTarjeta extends HttpServlet {
             String idU=request.getParameter("idU");
 
             if(numTar==null || mesTar==null || anoTar==null || codTar==null || nomTar==null ){
-                response.sendRedirect("error.jsp");
+                response.sendRedirect("Pago/pago.jsp?error=1");
             }else{
                 Sistema sis = new Sistema();
                 boolean exp = sis.validarPago(nomTar, codTar, anoTar, mesTar, numTar);
                 if (exp==false) {
-                    response.sendRedirect("error.html");
+                    response.sendRedirect("Pago/pago.jsp?error=1");
                 }else{
                     Usuario u = new Usuario();
                     int estado =u.pagarSuscripcion(idU);
@@ -58,7 +58,7 @@ public class validarTarjeta extends HttpServlet {
                         
                         response.sendRedirect("nuevoingreso/sign-up-sign-in.html");
                     }else{
-                        response.sendRedirect("error.html");
+                        response.sendRedirect("Pago/pago.jsp?error=1");
                     }
                     
                 }

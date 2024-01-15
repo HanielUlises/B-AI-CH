@@ -60,7 +60,7 @@ public class iniciarSesion extends HttpServlet {
                 
                 System.out.println("aaaaaaaaa"+c.getEmail());
                 if (c.getEmail()==null) {
-                    response.sendRedirect("error.html");
+                    response.sendRedirect("error.jsp?admrs=1");
                 }else{
                     Administrador a = Administrador.encontrarAdministrador(c.getId());
                     System.out.println(a.getId());

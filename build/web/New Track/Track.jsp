@@ -45,22 +45,14 @@ if(sessionOk.getAttribute("id")==null){
     </div>
 
     <div class="settings-container">
-      <div class="header-settings">
-        <h1>Create a new track</h1>
-      </div>
+        <div class="header-settings">
+          <h1>Create a new track</h1>
+        </div>
+
         <form action="../Gender/Gender.jsp" method="POST">
             <div class="tittle">
               <h2>Track tittle</h2>
               <input type="text" id="trackname" name="trackname">
-            </div>
-
-            <div class="dura">
-              <h2>Duration</h2>
-              <div class="tooltip">
-              <i class="fa-solid fa-circle-info"></i>
-              <span class="tooltiptext">With premium get up to 15 min</span></div>
-              <input type="number" id="min" name="setmin" min="0" max="59" placeholder="min">
-              <input type="number" id="seconds" name="setsec" min="0" max="59" placeholder="sec" >
             </div>
 
             <div class="tempo">
@@ -74,11 +66,11 @@ if(sessionOk.getAttribute("id")==null){
                   <option value="fast">Fast</option>
                 </select>
             </div>
-            <div class="header-settings">
+            <div class="header-settings"> 
                 <button type="submit" id="next">Next</button>
             </div>
         </form>
-            
+     
     </div>
 
       

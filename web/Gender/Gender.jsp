@@ -20,7 +20,7 @@ if(sessionOk.getAttribute("id")==null){
     int estado = (Integer)session.getAttribute("estado");
     String tempo = request.getParameter("tempo");
     String nombreTrack = request.getParameter("trackname");
-    if (nombreTrack==null) {
+    if (nombreTrack=="") {
             nombreTrack="default";
         }
     if (estado==0) {
@@ -48,50 +48,32 @@ if(sessionOk.getAttribute("id")==null){
     </div>
 
     <div class="gender-container">
+      
       <div class="header-gender">
         <h1>Choose the gender</h1>
       </div>
 
     <div class="gender-box">
         <form action="../Feeling/feeling.jsp" method="POST">
-            <input type="hidden" value="<%=tempo%>"/>
-            <input type="hidden" value="ambient"/>
+            <input type='hidden' name="nombreTrack" value='<%=nombreTrack%>'>
+            <input type="hidden" name="tempo" value="<%=tempo%>"/>
+            <input type="hidden" name="genre" value="ambient"/>
             <button class="gene" type="submit" id="ambient">Ambient</button>
         </form>
         <form action="../Feeling/feeling.jsp"  method="POST">
-            <input type="hidden" value="<%=tempo%>"/>
-            <input type="hidden" value="pop"/>
+            <input type='hidden' name="nombreTrack" value='<%=nombreTrack%>'>
+            <input type="hidden" name="tempo" value="<%=tempo%>"/>
+            <input type="hidden" name="genre" value="pop"/>
             <button class="gene" type="submit" id="pop">Pop</button>
         </form>
         <form action="../Feeling/feeling.jsp"  method="POST">
-            <input type="hidden" value="<%=tempo%>"/>
-            <input type="hidden" value="rock"/>
+            <input type='hidden' name="nombreTrack" value='<%=nombreTrack%>'>
+            <input type="hidden" name="tempo" value="<%=tempo%>"/>
+            <input type="hidden" name="genre" value="rock"/>
             <button class="gene"  type="submit" id="Rock">Rock</button>
         </form>
       </div>
 
-      <div class="gender-box">
-        <form action="../Feeling/feeling.jsp"  method="POST">
-            <input type="hidden" value="<%=tempo%>" />
-            <input type="hidden" value="indie"/>
-            <button class="gene" id="indie">Indie</button>
-        </form>
-        <form action="../Feeling/feeling.jsp"  method="POST">
-            <input type="hidden" value="<%=tempo%>"/>
-            <input type="hidden" value="hiphop"/>
-            <button class="gene" type="submit" id="Rock">Hip Hop</button>
-        </form>
-        <form action="../Feeling/feeling.jsp" method="POST">
-            <input type="hidden" value="<%=tempo%>"/>
-            <input type="hidden" value="jazz"/>
-            <button class="gene" type="submit" id="Rock">Jazz</button>
-        </form>
-            <button >
-
-      </div>
-
-      <div class="header-gender">
-        <button class="apply" id="next"> <a href="">Apply</a></button>
       </div>
     </div>
   </body>

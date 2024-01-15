@@ -162,5 +162,13 @@ input:hover{
 </html>
 <%
     }
+String error = request.getParameter("error");
+if (error!=null || error=="1") {
+        %>
+        <script>
+            alert("Lo sentimos, los datos no son válidos, tarjeta rechazada");
+        </script>
+<%        
+    }
 }
 %>
